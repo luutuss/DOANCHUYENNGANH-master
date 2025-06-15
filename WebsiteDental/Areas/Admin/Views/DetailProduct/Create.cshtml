@@ -1,0 +1,239 @@
+﻿@model WebsiteDental.Models.ProductDetail
+@{
+    ViewData["Title"] = "Thêm chi tiết sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-color: white;
+    }
+
+    .content-wrapper {
+        margin-left: 230px;
+        padding: 15px 20px 0 20px;
+    }
+
+    .page-intro {
+        margin-bottom: 15px;
+    }
+
+        .page-intro h4 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #1a3b5d;
+        }
+
+        .page-intro p {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+    .form-container {
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .form-section-header {
+        font-size: 16px;
+        font-weight: 600;
+        color: #1a3b5d;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #eaeaea;
+    }
+
+    .form-row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -10px;
+        margin-left: -10px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+        .form-group.col-md-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        .form-group.col-md-4 {
+            flex: 0 0 33.3333%;
+            max-width: 33.3333%;
+        }
+
+        .form-group.col-md-3 {
+            flex: 0 0 25%;
+            max-width: 25%;
+        }
+
+        .form-group.col-md-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+    .control-label {
+        font-weight: 500;
+        margin-bottom: 5px;
+        display: block;
+        color: #495057;
+    }
+
+    .form-control, .form-select {
+        display: block;
+        width: 100%;
+        padding: 8px 12px;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+    }
+
+        .form-control:focus, .form-select:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+        }
+
+    .text-danger {
+        color: #dc3545;
+        font-size: 12px;
+        margin-top: 4px;
+        display: block;
+    }
+
+    .btn-primary {
+        color: #fff;
+        background-color: #1a3b5d;
+        border-color: #1a3b5d;
+        padding: 8px 16px;
+        font-size: 14px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        .btn-primary:hover {
+            background-color: #2c5282;
+            border-color: #2c5282;
+        }
+
+    .btn-back {
+        color: #1a3b5d;
+        background-color: #f0f0f0;
+        padding: 8px 16px;
+        font-size: 14px;
+        border-radius: 4px;
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block;
+    }
+
+        .btn-back:hover {
+            background-color: #e0e0e0;
+            text-decoration: none;
+        }
+
+    .form-actions {
+        margin-top: 20px;
+        border-top: 1px solid #eaeaea;
+        padding-top: 15px;
+    }
+
+   
+</style>
+
+<div class="content-wrapper">
+    <div class="page-intro">
+        <h4>Thêm mới chi tiết sản phẩm</h4>
+        <p>Điền đầy đủ thông tin chi tiết sản phẩm để hiển thị trên website.</p>
+    </div>
+
+    <div class="form-container">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-section-header">Thông tin sản phẩm</div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Id" class="control-label">Tên sản phẩm</label>
+                    <select asp-for="Id" class="form-select" asp-items="ViewBag.ProductId"></select>
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-3">
+                    <label asp-for="Price" class="control-label">Giá</label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-3">
+                    <label asp-for="OldPrice" class="control-label">Giá cũ</label>
+                    <input asp-for="OldPrice" class="form-control" />
+                </div>
+                <div class="form-group col-md-3">
+                    <label asp-for="DiscountPercent" class="control-label">Giảm (%)</label>
+                    <input asp-for="DiscountPercent" class="form-control" />
+                </div>
+                <div class="form-group col-md-3">
+                    <label asp-for="Origin" class="control-label">Xuất xứ</label>
+                    <input asp-for="Origin" class="form-control" />
+                </div>
+                <div class="form-group col-md-3">
+                    <label asp-for="Manufacturer" class="control-label">Nhà SX</label>
+                    <input asp-for="Manufacturer" class="form-control" />
+                </div>
+                <div class="form-group col-md-3">
+                    <label asp-for="ExpiryDate" class="control-label">Hạn sử dụng</label>
+                    <input asp-for="ExpiryDate" class="form-control" type="date" />
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Slug" class="control-label">Slug</label>
+                    <input asp-for="Slug" class="form-control" />
+                </div>
+                <div class="form-group col-md-12">
+                    <label asp-for="Description" class="control-label">Mô tả</label>
+                    <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Usage" class="control-label">Hướng dẫn sử dụng</label>
+                    <textarea asp-for="Usage" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Preservation" class="control-label">Bảo quản</label>
+                    <textarea asp-for="Preservation" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="form-group col-md-12">
+                    <label asp-for="GalleryImages" class="control-label">Link hình ảnh (ngăn cách bằng dấu phẩy)</label>
+                    <input asp-for="GalleryImages" class="form-control" />
+                </div>
+                <div class="form-group col-md-3">
+                    <label asp-for="IsActive" class="control-label">Trạng thái</label>
+                    <select asp-for="IsActive" class="form-select">
+                        <option value="true">Hiển thị</option>
+                        <option value="false">Ẩn</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <a asp-action="Index" class="btn-back">
+                    <i class="fa fa-arrow-left"></i> Quay lại
+                </a>
+                <button type="submit" class="btn-primary">
+                    <i class="fa fa-save"></i> Lưu chi tiết
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Website-Sữa</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Đảm bảo đúng đường dẫn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Libraries Stylesheet -->
+    <link rel="stylesheet" href="~/assets/lib/animate/animate.min.css" />
+    <link href="~/assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="~/assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Template Stylesheet -->
+    <link href="~/assets/css/style/style.css" rel="stylesheet">
+    <link href="~/assets/css/style/styleFooter.css" rel="stylesheet">
+    <link href="~/assets/css/style/style_menu.css" rel="stylesheet">
+    <link href="~/assets/css/style/style_Image.css" rel="stylesheet">
+    <link href="~/assets/css/style/style_Discounts.css" rel="stylesheet">
+    <link href="~/assets/css/style/style_doctors.css" rel="stylesheet">
+    <link href="~/assets/css/style/Banner.css" rel="stylesheet">
+    <link href="~/assets/css/style/style_FQA.css" rel="stylesheet">
+    <link href="~/assets/css/style/style_Service.css" rel="stylesheet">
+   <link href="~/assets/css/style/style_Blogposts.css" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+    @await Component.InvokeAsync("MenuTop")
+    <!-- Modal Search Start -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center bg-primary">
+                    <div class="input-group w-75 mx-auto d-flex">
+                        <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                        <span id="search-icon-1" class="btn bg-light border nput-group-text p-3"><i class="fa fa-search"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Search End -->
+   
+
+    @RenderBody()
+
+
+    <!-- Footer Section Start -->
+    <div class="dental-footer">
+        <div class="dental-footer-top">
+            <div class="dental-container">
+                <div class="dental-footer-main">
+                    <!-- Thông tin công ty -->
+                    <div class="dental-footer-col">
+                        <h3 class="dental-footer-title">LTT-WebsiteMilk - SIÊU THỊ SỮA</h3>
+                        <div class="dental-footer-info">
+                            <p><i class="fas fa-map-marker-alt"></i> VP tại Việt Nam: Tòa Nhà Trường Thịnh, 76 Nguyễn Hảo Vĩnh, P. Tân Quý, Q. Tân Phú, TP. HCM</p>
+                            <p><i class="fas fa-map-marker-alt"></i> VP tại Nhật Bản: Kanagawa Ken Ebina - Shi Nakana, Japan</p>
+                            <p><i class="fas fa-phone-alt"></i> Hotline CSKH: <a href="tel:0975800600">0975 800 600</a></p>
+                            <p><i class="fas fa-headset"></i> Hotline khiếu nại: <a href="tel:02871088889">(028) 7108 8889</a></p>
+                            <p><i class="fas fa-store"></i> Cửa hàng: 360 Phan Đăng Lưu, phường 5, Phú Nhuận, Hồ Chí Minh</p>
+                            <p><i class="fas fa-phone"></i> Điện thoại: <a href="tel:02871001779">(028) 7100 1779</a></p>
+                            <p><i class="fas fa-id-card"></i> Giấy CNĐKKD: 0313518985 - Sở KH & ĐT TP. HCM - Phòng ĐKKD (Cấp ngày: 03/11/2015)</p>
+                        </div>
+                        <div class="dental-footer-social">
+                            <span>Kết nối với chúng tôi: </span>
+                            <a href="#" class="dental-social-btn"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="dental-social-btn"><i class="fab fa-shopify"></i></a>
+                            <a href="#" class="dental-social-btn"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Hỗ trợ khách hàng -->
+                    <div class="dental-footer-col">
+                        <h3 class="dental-footer-title">Hỗ trợ khách hàng</h3>
+                        <ul class="dental-footer-links">
+                            <li><a href="#">Câu hỏi thường gặp</a></li>
+                            <li><a href="#">Chính sách vận chuyển</a></li>
+                            <li><a href="#">Quy định bán hàng trên Website</a></li>
+                            <li><a href="#">Hướng dẫn mua hàng</a></li>
+                            <li><a href="#">Chính sách đổi trả và hoàn tiền</a></li>
+                            <li><a href="#">Thời gian giao hàng</a></li>
+                            <li><a href="#">Phương thức thanh toán</a></li>
+                            <li><a href="#">Về chúng tôi</a></li>
+                            <li><a href="#">Điều khoản giao dịch</a></li>
+                            <li><a href="#">Quyền lợi thành viên</a></li>
+                            <li><a href="#">Chính sách bảo mật</a></li>
+                            <li><a href="#">Chính sách bảo hành</a></li>
+                            <li><a href="#"><i class="fas fa-star"></i> Cẩm nang tiêu dùng</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Tiện ích -->
+                    <div class="dental-footer-col">
+                        <h3 class="dental-footer-title">Tiện ích</h3>
+                        <div class="dental-app-download">
+                            <p>TẢI APP</p>
+                            <div class="dental-qr-app">
+                                <img src="https://i.pinimg.com/736x/2b/91/0f/2b910f55638ba5a16de81337edf0ec25.jpg" alt="QR Code Tải App">
+                                <div class="dental-app-links">
+                                    <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvzJASvP_DUtrXr3e-pFLajZYQ8NUOP-g46g&s" alt="App Store"></a>
+                                    <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1280px-Google_Play_Store_badge_EN.svg.png" alt="Google Play"></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dental-payment">
+                            <h3 class="dental-footer-title">THANH TOÁN</h3>
+                            <div class="dental-payment-methods">
+                                <div class="dental-payment-row">
+                                    <img src="https://facovietnam.com/wp-content/uploads/2022/08/thanh-toan-bang-tien-mat-tren-20-trieu-co-duoc-chap-nhan-khong.jpg" alt="Tiền mặt">
+                                    <img src="https://canhme.com/wp-content/uploads/2016/01/visa_mastercard.jpg" alt="Visa">
+                                    <img src="https://news.appotapay.com/wp-content/uploads/2022/04/huong-dan-tich-hop-thanh-toan-visa-master-vao-website-don-gian-1.jpg" alt="Mastercard">
+                                </div>
+                                <div class="dental-payment-row">
+                                    <img src="https://secomm.vn/wp-content/uploads/2021/11/Phuong-thuc-thanh-toan-thuong-mai-dien-tu.png" alt="Internet Banking">
+                                    <img src="https://cdn.tgdd.vn/2023/12/campaign/Thumb2-VNpay-800x450-640x360.jpg" alt="VNPay">
+                                    <img src="https://cdn-media.sforum.vn/storage/app/media/vi-momo.jpg" alt="Momo">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dental-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.2586009840104!2d106.6785533!3d10.792884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQ3JzU0LjQiTiAxMDbCsDQwJzQyLjgiRQ!5e0!3m2!1svi!2s!4v1650000000000!5m2!1svi!2s" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <div class="dental-copyright">
+            <div class="dental-container">
+                <p>&copy; 2025 LTT-WebsiteMilk. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Section End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    @RenderSection("Styles", required: false)
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/lib/wow/wow.min.js"></script>
+    <script src="~/assets/lib/easing/easing.min.js"></script>
+    <script src="~/assets/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/assets/lib/counterup/counterup.min.js"></script>
+    <script src="~/assets/lib/lightbox/js/lightbox.min.js"></script>
+    <script src="~/assets/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="~/assets/js/main.js"></script>
+    <!-- Render the Scripts section if defined in the page -->
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

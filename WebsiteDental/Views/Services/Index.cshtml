@@ -1,0 +1,89 @@
+﻿@section Styles {
+    <link href="~/assets/css/ServicesDental.css" rel="stylesheet">
+}
+
+@{
+    var servicesCategories = ViewBag.ServicesCategories as List<ServiceCategory> ?? new List<ServiceCategory>();
+    var services = ViewBag.Services as List<Service> ?? new List<Service>();
+}
+<div class="ltn-container">
+    <!-- Sidebar - Danh mục dịch vụ -->
+    <div class="ltn-sidebar">
+        <div class="ltn-sidebar-header">
+            <i class="fa-mug-hot ltn-mr-2"></i> Dịch Vụ
+        </div>
+        <ul>
+            @foreach (var category in servicesCategories)
+            {
+                <li>
+                    <a href="@Url.Action("Index", "Services", new { categoryId = category.Id })">
+                        <i class="fas fa-angle-right ltn-mr-2"></i> @category.CategoryName
+                    </a>
+                </li>
+            }
+        </ul>
+        <!-- Promotions -->
+        <div class="ltn-sidebar-promotions">
+            <div class="ltn-promo-item">
+                <img src="https://img.freepik.com/free-vector/dental-care-background-design_23-2148536076.jpg" alt="Khuyến mãi khám răng">
+                <div class="ltn-promo-caption">
+                    <i class="fas fa-percentage ltn-mr-1"></i> Giảm 30% tổng Bill
+                </div>
+            </div>
+            <div class="ltn-promo-item">
+                <img src="/assets/img/Discounts/anh8.jpg" alt="khuyến mãi">
+                <div class="ltn-promo-caption">
+                    <i class="fas fa-smile ltn-mr-1"></i> Đặt lịch sữa hàng tháng
+                </div>
+            </div>
+            <!-- Banner quảng cáo dọc dài -->
+            <div class="ltn-sidebar-banner">
+                <img src="/assets/img/Discounts/anh9.webp" alt="Ưu đãi đặc biệt">
+            </div>
+
+        </div>
+        <!-- Banner quảng cáo dọc dài -->
+        <div class="ltn-sidebar-banner">
+            <img src="/assets/img/Discounts/anh8.jpg" alt="Ưu đãi đặc biệt">
+        </div>
+        <!-- Banner quảng cáo dọc dài -->
+        <div class="ltn-sidebar-banner">
+            <img src="/assets/img/Discounts/anh10.webp" alt="Ưu đãi đặc biệt">
+        </div>
+
+
+
+    </div>
+    <!-- Main content -->
+    <div class="ltn-main-content">
+        <h1 class="ltn-service-title">
+            <i class="fas fa-teeth ltn-mr-2"></i> Dịch Vụ Cửa Hàng LTT-Milk
+        </h1>
+        <div class="service-description">
+            <p>Đối với Khách hàng, Chúng tôi luôn đảm bảo về chất lượng sản phẩm, giá cả hợp lý và hệ thống phân phối tốt nhất Việt Nam.</p>
+        </div>
+        <div class="ltn-service-grid">
+            @foreach (var item in services)
+            {
+                <div class="ltn-service-item ">
+                    <div class="ltn-service-image">                      
+                            <img src="@item.Image" alt="@item.ServiceName">                     
+                        <div class="ltn-service-heart" title="Thêm vào yêu thích"></div>
+                    </div>
+                    <div class="ltn-service-name">@item.ServiceName</div>
+                    <div class="ltn-service-current-price">
+                        @item.Price?.ToString("#,##0", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")) đ
+                    </div>
+
+                    <div class="ltn-service-description-short">
+                       @item.Description
+                    </div>
+                    <a asp-controller="DetailServices" asp-action="DetailServices" asp-route-id="@item.Id" class="ltn-appointment-button">
+                        <i class="fas fa-calendar-check ltn-mr-1"></i> Liên Hệ
+                    </a>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>

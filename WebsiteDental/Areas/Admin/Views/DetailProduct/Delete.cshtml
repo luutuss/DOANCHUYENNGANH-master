@@ -1,0 +1,28 @@
+﻿@model WebsiteDental.Models.ProductDetail
+@{
+    ViewData["Title"] = "Xoá chi tiết sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <h4>Bạn có chắc chắn muốn xoá chi tiết sản phẩm này?</h4>
+    <dl class="row">
+        <dt class="col-sm-3">Tên sản phẩm</dt>
+        <dd class="col-sm-9">@Model.Product?.ProductName</dd>
+
+        <dt class="col-sm-3">Giá</dt>
+        <dd class="col-sm-9">@string.Format("{0:N0} đ", Model.Price)</dd>
+
+        <dt class="col-sm-3">Mô tả</dt>
+        <dd class="col-sm-9">@Model.Description</dd>
+
+        <dt class="col-sm-3">Ngày tạo</dt>
+        <dd class="col-sm-9">@Model.CreatedAt?.ToString("dd/MM/yyyy")</dd>
+    </dl>
+
+    <form asp-action="DeleteConfirmed">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Xoá</button>
+        <a asp-action="Index" class="btn btn-secondary">Huỷ</a>
+    </form>
+</div>

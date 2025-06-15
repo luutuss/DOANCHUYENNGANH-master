@@ -1,0 +1,74 @@
+﻿@model WebsiteDental.Models.ProductDetail
+@{
+    ViewData["Title"] = "Chỉnh sửa chi tiết sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <h4>Chỉnh sửa chi tiết sản phẩm</h4>
+    <form asp-action="Edit">
+        <input type="hidden" asp-for="Id" />
+        <div class="col-md-6">
+            <label asp-for="ProductId" class="form-label">Tên sản phẩm</label>
+            <select asp-for="ProductId" class="form-select" asp-items="ViewBag.ProductId"></select>
+            <span asp-validation-for="ProductId" class="text-danger"></span>
+        </div>
+        <div class="col-md-3">
+            <label asp-for="Price" class="form-label">Giá</label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="col-md-3">
+            <label asp-for="OldPrice" class="form-label">Giá cũ</label>
+            <input asp-for="OldPrice" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            <label asp-for="DiscountPercent" class="form-label">Giảm (%)</label>
+            <input asp-for="DiscountPercent" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            <label asp-for="Origin" class="form-label">Xuất xứ</label>
+            <input asp-for="Origin" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            <label asp-for="Manufacturer" class="form-label">Nhà SX</label>
+            <input asp-for="Manufacturer" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            <label asp-for="ExpiryDate" class="form-label">Hạn sử dụng</label>
+            <input asp-for="ExpiryDate" class="form-control" type="date" />
+        </div>
+        <div class="col-md-6">
+            <label asp-for="Slug" class="form-label">Slug</label>
+            <input asp-for="Slug" class="form-control" />
+        </div>
+        <div class="col-12">
+            <label asp-for="Description" class="form-label">Mô tả</label>
+            <textarea asp-for="Description" class="form-control"></textarea>
+        </div>
+        <div class="col-6">
+            <label asp-for="Usage" class="form-label">Hướng dẫn sử dụng</label>
+            <textarea asp-for="Usage" class="form-control"></textarea>
+        </div>
+        <div class="col-6">
+            <label asp-for="Preservation" class="form-label">Bảo quản</label>
+            <textarea asp-for="Preservation" class="form-control"></textarea>
+        </div>
+        <div class="col-12">
+            <label asp-for="GalleryImages" class="form-label">Link hình ảnh (ngăn cách bằng dấu phẩy)</label>
+            <input asp-for="GalleryImages" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            <label asp-for="IsActive" class="form-label">Trạng thái</label>
+            <select asp-for="IsActive" class="form-select">
+                <option value="true">Hiển thị</option>
+                <option value="false">Ẩn</option>
+            </select>
+        </div>
+        <div class="col-12 mt-3">
+            <button type="submit" class="btn btn-primary">Lưu</button>
+            <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+        </div>
+        @await Html.PartialAsync("Edit", Model)
+    </form>
+</div>

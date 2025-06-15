@@ -1,0 +1,46 @@
+﻿
+<!-- Hero Video Section -->
+<section class="hero-video">
+    <div class="hero-video-container">
+        <iframe width="560"
+                height="315"
+                src="https://www.youtube.com/embed/Y1w11bhqHqk?autoplay=1&mute=1&loop=1&playlist=Y1w11bhqHqk&controls=0&start=4&end=23"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+    </div>
+    <div  class="hero-content">
+        <h1 style="color: white !important;">Hệ Thống Sữa <br /> Website-Milk</h1>
+        <p style="color: white !important;">Chăm sóc sức khỏe - Khỏe mạnh rạng rỡ</p>
+        <a href="/ContactForms" class="btn btn-booking">Xem ngay</a>
+    </div>
+</section>
+<!-- Carousel End -->
+
+<!-- Discounts Start -->
+@await Component.InvokeAsync("Discounts")
+<!-- Discounts End -->
+@await Component.InvokeAsync("ServiceFeatures")
+<!-- Doctors Start -->
+@await Component.InvokeAsync("Doctors")
+<!-- Doctors End -->
+
+@await Component.InvokeAsync("ImageGallery")
+
+<!-- Service Start -->
+@await Component.InvokeAsync("Services")
+<!-- Service End -->
+
+<!-- FAQs Start -->
+@await Component.InvokeAsync("FQAs")
+<!-- FAQs End -->
+
+<!-- Blog Start -->
+@await Component.InvokeAsync("BlogPosts")
+<!-- Blog End -->
+
+<!-- Testimonial Start -->
+@await Component.InvokeAsync("CustomerReviews")
+<!-- Testimonial End -->

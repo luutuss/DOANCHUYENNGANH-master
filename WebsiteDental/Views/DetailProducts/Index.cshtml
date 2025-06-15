@@ -1,0 +1,452 @@
+﻿@section Styles {
+    <link href="~/assets/css/style/DetailProducts.css" rel="stylesheet">
+}
+@using WebsiteDental.Models
+@model WebsiteDental.Models.ProductDetailModelView
+<div class="container prod-detail-container">
+    <div class="row">
+        <!-- Sidebar danh mục - Cột bên trái -->
+        <div class="col-lg-3 col-md-4">
+            <!-- Danh mục sản phẩm -->
+            <div class="prod-category-sidebar">
+                <div class="prod-category-title">
+                    <i class="fas fa-list-ul me-2"></i> Danh Mục Sản Phẩm
+                </div>
+
+
+                <ul class="prod-category-list">
+                    @foreach (var category in Model.CategoryList)
+                    {
+                        <li class="prod-category-item">
+                            <a href="#"><i class="fas fa-angle-right"></i> @category.CategoryName</a>
+                        </li>
+                    }
+                </ul>
+
+
+            </div>
+
+            <!-- Banner quảng cáo -->
+            <div class="prod-promo-banner">
+                <img src="https://i.pinimg.com/736x/fc/79/b9/fc79b924af5fb02ce117517e424347d7.jpg" alt="Khuyến mãi đặc biệt">
+            </div>
+
+            <!-- Sản phẩm nổi bật -->
+            <div class="prod-category-sidebar">
+                <div class="prod-category-title">
+                    <i class="fas fa-fire me-2"></i> Sản Phẩm Nổi Bật
+                </div>
+                <ul class="prod-category-list">
+                    <li class="prod-category-item">
+                        <a href="#"><i class="fas fa-angle-right"></i> Viga 50000</a>
+                    </li>
+                    <li class="prod-category-item">
+                        <a href="#"><i class="fas fa-angle-right"></i> Titan Gel Gold</a>
+                    </li>
+                    <li class="prod-category-item">
+                        <a href="#"><i class="fas fa-angle-right"></i> MaxMan Power</a>
+                    </li>
+                    <li class="prod-category-item">
+                        <a href="#"><i class="fas fa-angle-right"></i> Ejaculoid</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="vshop-consultant">
+                <div class="vshop-consultant-header">
+                    <div class="vshop-consultant-avatar">
+                        <img src="https://nhathuoc186.net/wp-content/uploads/2024/12/ejaculoid-avt-1.jpg" alt="Tư vấn viên">
+                    </div>
+                    <div>
+                        <div class="vshop-consultant-name">Dược sĩ Đặng Thị Hồng</div>
+                        <div class="vshop-consultant-title">Tư vấn chuyên môn</div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between mb-3">
+                    <button class="vshop-contact-btn">Nhờ tư vấn</button>
+                    <button class="vshop-contact-btn">Xem hồ sơ</button>
+                </div>
+
+                <div class="vshop-consultant-contact">
+                    <div class="vshop-contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <div><strong>0916893886</strong></div>
+                        <div style="font-size: 14px; color: #28a745;">Đang Online</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thêm các quảng cáo mới -->
+            <!-- Quảng cáo flash sale -->
+            <div class="ad-flash-sale">
+                <div class="ad-flash-sale-header">
+                    <div class="flash-sale-title">
+                        <i class="fas fa-bolt me-2"></i> FLASH SALE
+                    </div>
+                    <div class="flash-sale-timer">
+                        <span class="timer-box">08</span>:
+                        <span class="timer-box">45</span>:
+                        <span class="timer-box">13</span>
+                    </div>
+                </div>
+                <div class="flash-sale-products">
+                    <div class="flash-sale-product">
+                        <div class="discount-tag">-30%</div>
+                        <img src="https://i.pinimg.com/736x/3c/ee/dd/3ceeddf53691129091da16931bc278f8.jpg" alt="Flash Sale Product">
+                        <div class="flash-sale-product-info">
+                            <div class="flash-sale-product-name">Viga 50000 - Hộp 30 viên</div>
+                            <div class="flash-sale-product-price">
+                                <span class="old-price">450.000đ</span>
+                                <span class="current-price">315.000đ</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="flash-sale-product-sold">Đã bán 15/20</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quảng cáo chứng nhận -->
+            <div class="certification-banner">
+                <div class="certification-title">CHỨNG NHẬN CHÍNH HÃNG</div>
+                <div class="certification-content">
+                    <img src="https://i.pinimg.com/736x/31/1f/37/311f3782133d881ea9427f3e6057769a.jpg" alt="Certification" class="certification-icon">
+                    <div class="certification-text">
+                        <p>Sản phẩm được nhập khẩu chính hãng</p>
+                        <p>100% sản phẩm được kiểm định chất lượng</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quảng cáo khuyến mãi -->
+            <div class="promotion-card">
+                <div class="promotion-card-header">
+                    <i class="fas fa-gift me-2"></i> KHUYẾN MÃI ĐẶC BIỆT
+                </div>
+                <div class="promotion-card-content">
+                    <div class="promotion-item">
+                        <div class="promotion-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="promotion-text">Miễn phí vận chuyển cho đơn hàng từ 500.000đ</div>
+                    </div>
+                    <div class="promotion-item">
+                        <div class="promotion-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <div class="promotion-text">Giảm 10% cho khách hàng mới</div>
+                    </div>
+                    <div class="promotion-item">
+                        <div class="promotion-icon">
+                            <i class="fas fa-tag"></i>
+                        </div>
+                        <div class="promotion-text">Tặng quà khi mua 2 sản phẩm cùng loại</div>
+                    </div>
+                </div>
+            </div>
+
+           
+
+            <!-- Quảng cáo dịch vụ -->
+            <div class="service-banner">
+                <div class="service-title">DỊCH VỤ ĐẶC BIỆT</div>
+                <div class="service-list">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <div class="service-name">Giao hàng nhanh</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+                        <div class="service-name">Đóng gói kín đáo</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <div class="service-name">Thanh toán an toàn</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="service-name">Tư vấn 24/7</div>
+                    </div>
+                </div>
+            </div>
+
+           
+        </div>
+
+        <!-- Nội dung chính - Cột bên phải -->
+        <div class="col-lg-9 col-md-8">
+            <div class="row prod-product-main">
+                <!-- Product Image Column -->
+                <div class="col-md-5">
+                    <div class="prod-product-image">
+                        <div class="prod-discount-tag">-15%</div>
+                        <img src="@Model.Product.Image" alt="Ejaculoid">
+                    </div>
+                    <div class="prod-quantity">
+                        <div id="decrease-btn" class="prod-quantity-btn">-</div>
+                        <input type="number" id="prod-quantity-input" class="prod-quantity-input" name="quantity" value="1" min="1" />
+                        <div id="increase-btn" class="prod-quantity-btn">+</div>
+                    </div>
+
+                    <form id="add-to-cart-form" method="post" asp-action="AddToCart" asp-controller="ShoppingCart">
+                        <input type="hidden" name="productId" value="@Model.Product.Id" />
+                        <!-- Thêm input ẩn để truyền số lượng -->
+                        <input type="hidden" id="quantity-input" name="quantity" value="3" />
+                        <button type="submit" class="prod-add-cart">Thêm vào giỏ</button>
+                    </form>
+
+                    <!-- Nút quay lại trang trước đó -->
+                    <button class="btn btn-outline-info" onclick="window.history.back();">Quay lại</button>
+
+                </div>
+
+                <!-- Product Info Column -->
+                <div class="col-md-7">
+                    <div class="prod-product-info">
+                        <h1>@Model.Product.ProductName</h1>
+
+                        <div class="prod-price">
+                            <!-- Kiểm tra giá cũ, nếu có -->
+                            @if (Model.Detail.OldPrice > Model.Detail.Price)
+                            {
+                                <span class="prod-price-old">@Model.Detail.OldPrice?.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("vi-VN"))</span>
+                            }
+                            <span class="prod-price-current">@Model.Detail.Price?.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("vi-VN"))</span>
+                        </div>
+
+
+
+
+                        <div class="prod-product-desc">
+                            <p><strong>Mô tả:</strong> @Model.Product.Description</p>
+                        </div>
+
+                        <div class="prod-product-features">
+                            <div class="prod-feature-item">
+                                <div class="prod-feature-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div>
+                                    Thành phần: @Model.Detail.Ingredients
+                                </div>
+                            </div>
+
+                            <div class="prod-feature-item">
+                                <div class="prod-feature-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div>
+                                    Bảo quản: @Model.Detail.Preservation
+                                </div>
+                            </div>
+
+                            <div class="prod-feature-item">
+                                <div class="prod-feature-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div>
+                                    Xuất xứ: @Model.Detail.Origin
+                                </div>
+                            </div>
+
+                            <div class="prod-feature-item">
+                                <div class="prod-feature-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div>
+                                    Bào hành: @Model.Detail.WarrantyInfo
+                                </div>
+                            </div>
+                        </div>
+
+                      @*   <div class="prod-quantity">
+                            <div id="decrease-btn" class="prod-quantity-btn">-</div>
+                            <input type="number" id="prod-quantity-input" class="prod-quantity-input" name="quantity" value="3" min="1" />
+                            <div id="increase-btn" class="prod-quantity-btn">+</div>
+                        </div>
+
+                        <form id="add-to-cart-form" method="post" asp-action="AddToCart" asp-controller="ShoppingCart">
+                            <input type="hidden" name="productId" value="@Model.Product.Id" />
+                            <!-- Thêm input ẩn để truyền số lượng -->
+                            <input type="hidden" id="quantity-input" name="quantity" value="3" />
+                            <button type="submit" class="prod-add-cart">Thêm vào giỏ</button>
+                        </form>
+
+                        <!-- Nút quay lại trang trước đó -->
+                        <button class="btn btn-outline-info" onclick="window.history.back();">Quay lại</button>
+ *@
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thông tin chi tiết sản phẩm -->
+            <div class="prod-product-main">
+                <ul class="nav nav-tabs" id="productTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">Mô tả</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="details-tab" data-bs-toggle="tab" data-bs-target="#details" type="button" role="tab" aria-controls="details" aria-selected="false">Chi tiết</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">Đánh giá</button>
+                    </li>
+                </ul>
+                <div class="tab-content p-3" id="productTabsContent">
+                    <!-- đoạn lấy dữ liệu trong sql -->
+                    <div class="tab-pane fade show active p-4" id="description" role="tabpanel" aria-labelledby="description-tab">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title text-primary mb-3">Giới thiệu về @Model.Product.ProductName </h4>
+                                <p class="card-text">
+                                   
+                                    <strong>@Model.Product.Description</strong> 
+                                
+                                </p>
+
+                                <p class="card-text">
+                                    @Model.Detail.UsageInstructions
+                                </p>
+
+                            
+
+                                <div class="alert alert-info">
+                                    <strong>Lưu ý:</strong>Nên dùng đúng liều lượng và theo hướng dẫn của chuyên gia.
+                                </div>
+
+                                <p class="text-muted mb-0">
+                                    <small>Sản phẩm không phải là thuốc và không có tác dụng thay thế thuốc chữa bệnh.</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- đoạn lấy dữ liệu trong sql -->
+                    <div class="tab-pane fade" id="details" role="tabpanel" aria-labelledby="details-tab">
+                        <h4>Thông tin chi tiết</h4>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td width="30%"><strong>Tên sản phẩm</strong></td>
+                                    <td>@Model.Product.ProductName</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Cách dùng</strong></td>
+                                    <td>@Model.Detail.Usage</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Xuất xứ</strong></td>
+                                    <td>@Model.Detail.Origin</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Quy cách</strong></td>
+                                    <td>@Model.Detail.Specification</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Hạn sử dụng</strong></td>
+                                    <td>3 năm kể từ ngày sản xuất</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                     
+
+                        <div class="border-top pt-3">
+
+
+                            @if (Model.Comments != null && Model.Comments.Any())
+                            {
+                                @foreach (var comment in Model.Comments)
+                                {
+                                    <div class="mb-4">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <img src="/assets/img/logo.jpg" class="rounded-circle me-2" alt="User" style="width: 40px; height: 40px;">
+                                            <div>
+                                                <h6 class="mb-0">@comment.CreatedBy</h6>
+                                                <small class="text-muted">@comment.CreatedAt?.ToString("dd/MM/yyyy HH:mm:ss")</small>
+                                            </div>
+                                        </div>
+                                        <p>@comment.CommentText</p>
+                                        <p><small><em>@comment.Gmail</em></small></p>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <p>Chưa có bình luận nào.</p>
+                            }
+                        </div>
+
+                        <!-- Form nhập bình luận mới -->
+                        <div class="border-top pt-4 mt-4">
+                            <h5 class="mb-3">Viết đánh giá của bạn</h5>
+                            <form method="post" action="/DetailProducts/AddComment">
+                                <input type="hidden" name="ProductId" value="@Model.Product.Id" />
+
+                                <!-- Tên người đánh giá -->
+                                <div class="mb-3">
+                                    <label for="CreatedBy" class="form-label">Tên:</label>
+                                    <input type="text" name="CreatedBy" class="form-control" required />
+                                </div>
+
+                                <!-- Bình luận -->
+                                <div class="mb-3">
+                                    <label for="CommentText" class="form-label">Bình luận:</label>
+                                    <textarea name="CommentText" class="form-control" required></textarea>
+                                </div>
+
+                                <!-- Gmail của người đánh giá -->
+                                <div class="mb-3">
+                                    <label for="Gmail" class="form-label">Gmail:</label>
+                                    <input type="email" name="Gmail" class="form-control" required />
+                                </div>
+
+                                <!-- Nút gửi bình luận -->
+                                <button type="submit" class="btn btn-primary">Gửi Bình Luận</button>
+                            </form>
+                        </div>
+
+
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Xử lý số lượng trong đơn hàng -->
+<script>
+    document.getElementById('increase-btn').addEventListener('click', function () {
+        var quantityInput = document.getElementById('prod-quantity-input');
+        var currentQuantity = parseInt(quantityInput.value);
+        quantityInput.value = currentQuantity + 1; // Tăng số lượng
+    });
+
+    document.getElementById('decrease-btn').addEventListener('click', function () {
+        var quantityInput = document.getElementById('prod-quantity-input');
+        var currentQuantity = parseInt(quantityInput.value);
+        if (currentQuantity > 1) {
+            quantityInput.value = currentQuantity - 1; // Giảm số lượng nếu lớn hơn 1
+        }
+    });
+
+    document.getElementById('add-to-cart-form').addEventListener('submit', function (event) {
+        // Cập nhật giá trị cho input ẩn khi submit form
+        var quantity = document.getElementById('prod-quantity-input').value;
+        document.getElementById('quantity-input').value = quantity;
+    });
+</script>

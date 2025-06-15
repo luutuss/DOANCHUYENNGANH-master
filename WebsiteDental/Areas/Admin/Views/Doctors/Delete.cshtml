@@ -1,0 +1,304 @@
+﻿
+@model WebsiteDental.Models.Doctor
+
+@{
+    ViewData["Title"] = "Xóa bác sĩ";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-color: white;
+    }
+
+    .content-wrapper {
+        margin-left: 230px; /* Đẩy nội dung sang phải để tránh thanh sidebar */
+        padding: 15px 20px 0 20px; /* Giảm padding phía trên */
+    }
+
+    .page-intro {
+        margin-bottom: 15px; /* Khoảng cách với form */
+    }
+
+        .page-intro h4 {
+            margin-top: 0; /* Loại bỏ margin top */
+            margin-bottom: 5px; /* Giảm margin bottom */
+        }
+
+        .page-intro p {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+    .delete-container {
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .alert-box {
+        background-color: #fff4f5;
+        border-left: 4px solid #dc3545;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 3px;
+    }
+
+    .alert-title {
+        color: #dc3545;
+        font-weight: 600;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+        .alert-title i {
+            margin-right: 8px;
+        }
+
+    .alert-message {
+        margin-bottom: 0;
+        color: #555;
+    }
+
+    .doctor-info {
+        display: flex;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .doctor-image {
+        width: 80px;
+        height: 80px;
+        border-radius: 5px;
+        object-fit: cover;
+        margin-right: 20px;
+        border: 1px solid #e0e0e0;
+    }
+
+    .doctor-header {
+        flex: 1;
+    }
+
+    .doctor-name {
+        font-size: 20px;
+        font-weight: 600;
+        color: #1a3b5d;
+        margin-bottom: 5px;
+    }
+
+    .doctor-specialization {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 5px;
+    }
+
+    .doctor-status {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    .status-active {
+        background-color: #e8f5e9;
+        color: #2e7d32;
+    }
+
+    .status-inactive {
+        background-color: #ffebee;
+        color: #c62828;
+    }
+
+    .info-summary {
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .info-item {
+        display: flex;
+        margin-bottom: 8px;
+        font-size: 14px;
+    }
+
+    .info-label {
+        font-weight: 500;
+        color: #666;
+        width: 150px;
+        flex-shrink: 0;
+    }
+
+    .info-value {
+        color: #333;
+        flex: 1;
+    }
+
+    .action-buttons {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        border-radius: 4px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+    }
+
+        .btn i {
+            margin-right: 5px;
+        }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: white;
+    }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+            color: white;
+        }
+
+    .btn-secondary {
+        background-color: #e9ecef;
+        color: #495057;
+    }
+
+        .btn-secondary:hover {
+            background-color: #dee2e6;
+            color: #212529;
+        }
+
+    /* Đáp ứng thiết bị di động */
+    @@media (max-width: 992px) {
+        .content-wrapper
+
+    {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .doctor-info {
+        flex-direction: column;
+    }
+
+    .doctor-image {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .info-item {
+        flex-direction: column;
+    }
+
+    .info-label {
+        width: 100%;
+        margin-bottom: 3px;
+    }
+
+    }
+</style>
+
+<div class="content-wrapper">
+    <div class="page-intro">
+        <h4>Xác nhận xóa bác sĩ</h4>
+        <p>Xem lại và xác nhận thông tin bác sĩ trước khi xóa khỏi hệ thống</p>
+    </div>
+
+    <div class="delete-container">
+        <div class="alert-box">
+            <div class="alert-title">
+                <i class="fa fa-exclamation-triangle"></i>
+                Cảnh báo
+            </div>
+            <p class="alert-message">Bạn đang chuẩn bị xóa bác sĩ này khỏi hệ thống. Hành động này không thể hoàn tác.</p>
+        </div>
+
+        <!-- Thông tin tổng quan của bác sĩ -->
+        <div class="doctor-info">
+            <div class="doctor-image-container">
+                @if (!string.IsNullOrEmpty(Model.Image))
+                {
+                    <img src="@Model.Image" alt="@Model.FullName" class="doctor-image" />
+                }
+                else
+                {
+                    <div class="doctor-image" style="display: flex; align-items: center; justify-content: center; background-color: #f0f0f0;">
+                        <i class="fa fa-user-md" style="font-size: 30px; color: #aaa;"></i>
+                    </div>
+                }
+            </div>
+            <div class="doctor-header">
+                <h2 class="doctor-name">@Model.FullName</h2>
+                <div class="doctor-specialization">@Model.Specialization</div>
+                @if (Model.IsActive == true)
+                {
+                    <div class="doctor-status status-active">Hoạt động</div>
+                }
+                else
+                {
+                    <div class="doctor-status status-inactive">Ngừng hoạt động</div>
+                }
+                <div>
+                    <small>Mã BS: <strong>@Model.DoctorNumber</strong></small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thông tin tóm tắt -->
+        <div class="info-summary">
+            <div class="info-item">
+                <div class="info-label">Email</div>
+                <div class="info-value">@Model.Email</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Số điện thoại</div>
+                <div class="info-value">@Model.Phone</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Số năm kinh nghiệm</div>
+                <div class="info-value">@Model.ExperienceYears năm</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Phí tư vấn</div>
+                <div class="info-value">@string.Format("{0:N0} đ", Model.ConsultationFee)</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Đánh giá</div>
+                <div class="info-value">
+                    <span style="font-weight: bold;">@Model.Rating</span>
+                    <i class="fa fa-star text-warning"></i>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Thời gian tạo</div>
+                <div class="info-value">  @(Model.CreatedAt != null ? Model.CreatedAt?.ToString("dd/MM/yyyy HH:mm") : "Chưa có")</div>
+            </div>
+        </div>
+
+        <!-- Form xác nhận xóa -->
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <div class="action-buttons">
+                <button type="submit" class="btn btn-danger">
+                    <i class="fa fa-trash"></i> Xác nhận xóa
+                </button>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="fa fa-arrow-left"></i> Quay lại danh sách
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+```

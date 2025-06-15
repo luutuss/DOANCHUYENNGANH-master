@@ -1,0 +1,88 @@
+﻿
+@section Styles {
+<link href="~/assets/css/Products.css" rel="stylesheet">
+}
+@{
+    var ProductCategories = ViewBag.ProductCategories as List<ProductCategory> ?? new List<ProductCategory>();
+   
+    var Products = ViewBag.Products as List<Product> ?? new List<Product>();
+}
+
+<div class="shop-main-container">
+    <div class="shop-side-wrapper">
+        <div class="shop-categories-box">
+            <!-- Phần mô tả mới -->
+            <div class="shop-intro-text">
+                <p>Khám phá các sản phẩm chất lượng cao từ nhiều thương hiệu uy tín. Tìm kiếm theo danh mục hoặc xuất xứ để dễ dàng mua sắm các sản phẩm phù hợp với nhu cầu của bạn.</p>
+            </div>
+            <div class="shop-category-block">
+                <div class="shop-heading">Danh Mục</div>
+                @foreach (var category in ProductCategories)
+                {
+                    <a href="@Url.Action("Index", "Products", new { categoryId = category.Id })">
+                        @category.CategoryName
+                    </a>
+                }
+            </div>
+            <div class="shop-category-block">
+                <div class="shop-heading">Xuất Xứ</div>
+                <ul class="shop-list shop-origin-items">
+                    <li data-count="156">Việt Nam</li>
+                    <li data-count="98">Nhật Bản</li>
+                    <li data-count="87">Hàn Quốc</li>
+                    <li data-count="65">Hoa Kỳ</li>
+                    <li data-count="42">Thụy Sỹ</li>
+                    <li data-count="37">Úc</li>
+                    <li data-count="28">Thái Lan</li>
+                </ul>
+            </div>
+        </div>
+        <div class="shop-banner">
+            <img src="/assets/img/Discounts/anh11.webp" alt="Quảng cáo">
+        </div>
+        <div class="shop-banner">
+            <img src="/assets/img/Discounts/anh12.webp" alt="Quảng cáo">
+        </div>
+    </div>
+    <div class="shop-items-wrapper ">
+        @foreach (var item in Products)
+        {
+            <div class="shop-item">
+                <div class="shop-item-tags">
+                    <span class="shop-discount-label">@item.Rating</span>
+                    <span class="shop-item-category">@item.Type</span>
+                </div>
+                <div class="shop-item-image">
+                    <img src="@item.Image" alt="@item.ProductName">
+                </div>
+                <div class="shop-item-info">
+                    <a asp-controller="DetailProducts" asp-action="Index" asp-route-id="@item.Id" class="shop-item-name">
+                        @item.ProductName
+                    </a>
+
+                    <div class="shop-price-area">
+                        <span class="shop-current-price">@item.Price?.ToString("C0", new System.Globalization.CultureInfo("vi-VN"))</span>
+
+                        <span class="shop-price-saving">Giảm: @item.PriceDiscount?.ToString("C0", new System.Globalization.CultureInfo("vi-VN"))</span>
+
+                    </div>
+                    <span class="shop-item-origin">@item.Type</span>
+                    <span class="shop-item-sales">Đã bán: 3</span>
+                    <button onclick="window.location.href='@Url.Action("Index", "DetailProducts", new { id = item.Id })'" class="shop-add-cart-btn">Xem chi tiết</button>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div class="shop-pagination">
+    <div class="shop-pagination-box">
+        <button class="shop-page-btn">&lt; Trước</button>
+        <button class="shop-page-btn">1</button>
+        <button class="shop-page-btn active">2</button>
+        <button class="shop-page-btn">3</button>
+        <button class="shop-page-btn ellipsis">...</button>
+        <button class="shop-page-btn">5</button>
+        <button class="shop-page-btn">Tiếp theo &gt;</button>
+    </div>
+</div>

@@ -1,0 +1,185 @@
+﻿@model WebsiteDental.Models.MenuPage
+@{
+    ViewData["Title"] = "Chi tiết menu";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-color: white;
+    }
+
+    .content-wrapper {
+        margin-left: 230px; /* Đẩy nội dung sang phải để tránh thanh sidebar */
+        padding: 15px 20px 0 20px; /* Giảm padding phía trên */
+    }
+
+    .page-intro {
+        margin-bottom: 15px; /* Khoảng cách dưới phần giới thiệu */
+    }
+
+        .page-intro h4 {
+            margin-top: 0; /* Loại bỏ margin top */
+            margin-bottom: 5px; /* Giảm margin bottom */
+        }
+
+        .page-intro p {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+    .details-container {
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        padding: 15px; /* Giảm padding */
+        margin-bottom: 20px;
+    }
+
+    .details-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px; /* Giảm margin */
+        padding-bottom: 10px;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+        .details-header h5 {
+            margin: 0; /* Loại bỏ margin mặc định */
+            color: #1a3b5d;
+        }
+
+    .label-col {
+        font-weight: 600;
+        color: #495057;
+    }
+
+    .details-row {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+        .details-row:last-child {
+            border-bottom: none;
+        }
+
+    .status-badge {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 13px;
+    }
+
+    .status-active {
+        background-color: #e8f5e9;
+        color: #2e7d32;
+    }
+
+    .status-inactive {
+        background-color: #ffebee;
+        color: #c62828;
+    }
+
+    .action-buttons {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .btn-action {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: #1a3b5d;
+        color: white;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+
+        .btn-action:hover {
+            background-color: #2c5282;
+            color: white;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+    /* Đáp ứng thiết bị di động */
+    @@media (max-width: 992px) {
+        .content-wrapper
+
+    {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    }
+</style>
+
+<div class="content-wrapper">
+    <div class="page-intro">
+        <h4>Chi tiết thông tin menu</h4>
+        <p>Xem chi tiết các thông tin về menu trước khi thực hiện chỉnh sửa.</p>
+    </div>
+
+    <div class="details-container">
+        <div class="details-header">
+            <h5>@Model.PageName</h5>
+        </div>
+
+        <div class="row details-row">
+            <div class="col-sm-4 label-col">Tiêu đề menu</div>
+            <div class="col-sm-8">@Html.DisplayFor(model => model.PageName)</div>
+        </div>
+
+        <div class="row details-row">
+            <div class="col-sm-4 label-col">Đường dẫn</div>
+            <div class="col-sm-8">@Html.DisplayFor(model => model.Url)</div>
+        </div>
+
+        <div class="row details-row">
+            <div class="col-sm-4 label-col">Vị trí hiển thị</div>
+            <div class="col-sm-8">@Html.DisplayFor(model => model.Position)</div>
+        </div>
+
+        <div class="row details-row">
+            <div class="col-sm-4 label-col">Trạng thái</div>
+            <div class="col-sm-8">
+                @if (Model.IsActive == true)
+                {
+                    <span class="status-badge status-active">Đang kích hoạt</span>
+                }
+                else
+                {
+                    <span class="status-badge status-inactive">Đã vô hiệu hóa</span>
+                }
+            </div>
+        </div>
+
+        <div class="row details-row">
+            <div class="col-sm-4 label-col">Menu cha</div>
+            <div class="col-sm-8">
+                @if (Model.Parent != null)
+                {
+                    @Html.DisplayFor(model => model.Parent.PageName)
+                }
+                else
+                {
+                    <span>Không có</span>
+                }
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <a asp-action="Index" class="btn-action btn-secondary">Quay lại</a>
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn-action">Chỉnh sửa</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,227 @@
+﻿@section Styles {
+    <link href="~/assets/css/About.css" rel="stylesheet">
+}
+@{  
+
+    // Ép kiểu dữ liệu từ ViewBag
+    var aboutDental = ViewBag.AboutDental as WebsiteDental.Models.AboutDental;
+    var imageGallery = ViewBag.ImageGallery as List<WebsiteDental.Models.ImageGallery>;
+}
+
+
+
+<div class="kim-dental-container">
+    <!-- Header Section -->
+    <h1 class="kim-title">@aboutDental?.Title</h1>
+
+    <!-- Blue Info Box -->
+    <div class="kim-info-box">
+        <p style="color: white !important">
+            <span class="kim-highlight">@aboutDental?.Content</span> 
+        </p>
+    </div>
+
+    <!-- Description Section -->
+    <div class="kim-description">
+        <p style="color: #0a4776 !important">
+            @aboutDental?.Description
+        </p>
+    </div>
+
+    <!-- Board Introduction -->
+    <div class="kim-board-intro">
+        <div class="kim-board-title">
+            <h2>GIỚI THIỆU HỆ THỐNG SỮA CỦA CHÙNG TÔI<br>LTT-MILK</h2>
+        </div>
+
+        <div class="kim-board-details">
+            <div class="kim-text-content">
+                <p style="color: white !important">
+                    <h2>LTT-Milk – Chăm sóc sức khỏe gia đình bạn từ ly sữa đầu tiên!</h2>
+                    Tự tin là nhà cung cấp nguồn dinh dưỡng tốt nhất. Với sự liên kết công nghệ tiên tiến và tiếp nhận nguồn nguyên liệu từ các quốc gia nổi tiếng về lĩnh vực sữa bột, sữa nước cao cấp, phối hợp cùng những chuyên gia dinh dưỡng trong nước để tạo ra những dòng sản phẩm cao cấp phù hợp với người tiêu dùng tại Việt Nam.
+                    Để đáp ứng nhu cầu phát triển & bảo vệ cơ thể ngày càng cao của mỗi người Công ty chúng tôi không ngừng nghiên cứu và phát triển nâng cao chất lượng của từng sản phẩm. Đồng thời Công ty chúng tôi cam kết với khách hàng về những yếu tố sau:
+
+                    – Đặt quyền lợi khách hàng lên trên hết.
+                    – Tạo ra những dòng sản phẩm chất lượng cao, giá cả hợp lý.
+                    – Thực hiện nghiêm túc vệ sinh an toàn thực phẩm
+                    – Nhiều chính sách ưu đãi cho hệ thống nhà phân phối
+                    – Dịch vụ giao hàng nhanh chóng.
+                </p>
+            </div>
+            <div class="kim-image-gallery">
+                <div class="image-item">
+                    <img src="https://media.vietnamplus.vn/images/7255a701687d11cb8c6bbc58a6c80785188b8b092c45fb79804cdec2b7655c35416e2fc1e2aef3e563fb19ef6e478282/Hinh_62.jpg" alt="ảnh 15 năm">
+                </div>
+                <div class="image-item">
+                    <img src="https://giaiphaptaichinh.net/upload/images/dieu-can-cho-doanh-nghiep-cua-ban-la-tam-nhin-su-menh-muc-tieu.png" alt="tầm nhìn và sứ mệnh">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Introduction Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h2 class="fw-bold text-primary mb-4">Về LTT-Milk</h2>
+                <p class="lead">Sẽ trở thành một trong những công ty sữa lớn nhất Việt Nam</p>
+                <div class="row mt-5">
+                    <div class="col-md-6 mb-4">
+                        <img src="https://media.vietnamplus.vn/images/7255a701687d11cb8c6bbc58a6c80785188b8b092c45fb79804cdec2b7655c35416e2fc1e2aef3e563fb19ef6e478282/Hinh_62.jpg" alt="15 năm" class="img-fluid rounded shadow mb-3">
+                        <h3 class="fw-bold text-primary">
+                            Chuyên gia trên 15 năm về sản xuất sữa cho bé
+                        </h3>
+                        <p>Tự tin là nhà cung cấp nguồn dinh dưỡng tốt nhất. Với sự liên kết công nghệ tiên tiến và tiếp nhận nguồn nguyên liệu từ các quốc gia nổi tiếng về lĩnh vực sữa bột, sữa nước cao cấp, phối hợp cùng những chuyên gia dinh dưỡng trong nước để tạo ra những dòng sản phẩm cao cấp phù hợp với người tiêu dùng tại Việt Nam.</p>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <img src="https://giaiphaptaichinh.net/upload/images/dieu-can-cho-doanh-nghiep-cua-ban-la-tam-nhin-su-menh-muc-tieu.png" alt="tầm nhìn và sứ mênh" class="img-fluid rounded shadow mb-3">
+                        <h3 class="fw-bold text-primary">Tầm nhìn & Sứ mệnh</h3>
+                        <p>
+                            Trong giai đoạn này, 3 lĩnh vực quan trọng tạo ra đòn bẩy cho việc đạt sứ mệnh của SỮA VÀ SỮA là:
+                            <p>– Phát triển quản trị nguồn nhân lực chiến lược.</p>
+                            <p>– Duy trì và quản lý hoạt động với mục tiêu phát triển bền vững.</p>
+                            <p>– Hoạch định và thực thi các lĩnh vực quản lý kiến thức, cải tiến và sự thay đổi.</p>
+                            Đối với Khách hàng, Chúng tôi luôn đảm bảo về chất lượng sản phẩm, giá cả hợp lý và hệ thống phân phối tốt nhất Việt Nam.
+                            
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Strengths -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12">
+                <h2 class="fw-bold text-primary mb-2">Điểm mạnh của LTT-Milk</h2>
+                <p class="lead mb-5">Tại sao hàng nghìn khách hàng tin tưởng chúng tôi?</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <div class="mb-3">
+                        <i class="bi bi-award-fill text-primary fs-1"></i>
+                    </div>
+                    <h3 class="fw-bold">Chất lượng sản phẩm vượt trội</h3>
+                    <p>Chúng tôi cam kết cung cấp các loại sữa chất lượng cao, có nguồn gốc rõ ràng, từ các thương hiệu uy tín trong và ngoài nước.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <div class="mb-3">
+                        <i class="bi bi-tools text-primary fs-1"></i>
+                    </div>
+                    <h3 class="fw-bold">Đa dạng sản phẩm</h3>
+                    <p>Từ sữa cho trẻ sơ sinh, trẻ nhỏ, người lớn tuổi đến các sản phẩm sữa dinh dưỡng đặc biệt – khách hàng có thể dễ dàng tìm được sản phẩm phù hợp.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <div class="mb-3">
+                        <i class="fa-solid fa-thumbs-up text-primary fs-1"></i>
+                    </div>
+                    <h3 class="fw-bold">Dịch vụ chăm sóc khách hàng tận tâm</h3>
+                    <p>Đội ngũ nhân viên nhiệt tình, am hiểu sản phẩm, luôn sẵn sàng tư vấn để khách hàng chọn đúng loại sữa phù hợp nhất.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Specialists -->
+
+            @await Component.InvokeAsync("Doctors")
+
+
+
+<!-- Our Facilities -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="fw-bold text-primary mb-4">Cơ Sở Vật Chất – Không Gian Mua Sắm Hiện Đại & Tiện Nghi</h2>
+                <p>Tại LTT-Milk, chúng tôi không chỉ chú trọng đến chất lượng sản phẩm mà còn đầu tư mạnh mẽ vào cơ sở hạ tầng và không gian mua sắm, nhằm mang đến trải nghiệm tốt nhất cho khách hàng.</p>
+
+                <div class="d-flex align-items-start mb-3">
+                    <i class="bi bi-check-circle-fill text-primary fs-4 me-3 mt-1"></i>
+                    <div>
+                        <h5 class="fw-bold">Không gian rộng rãi – thoáng mát</h5>
+                        <p>Cửa hàng được thiết kế hiện đại, sạch sẽ, với diện tích rộng rãi, giúp khách hàng thoải mái tham quan và lựa chọn sản phẩm. Hệ thống điều hòa luôn hoạt động ổn định, tạo sự dễ chịu cho cả người lớn và trẻ em.</p>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-start mb-3">
+                    <i class="bi bi-check-circle-fill text-primary fs-4 me-3 mt-1"></i>
+                    <div>
+                        <h5 class="fw-bold">Kệ hàng khoa học – dễ tìm kiếm</h5>
+                        <p>
+                            Các loại sữa được phân chia theo từng khu vực rõ ràng:
+
+                            Khu vực sữa cho trẻ sơ sinh (0–12 tháng),
+
+                            Sữa cho trẻ nhỏ (1–6 tuổi),
+
+                            Sữa bầu và sau sinh,
+
+                            Sữa cho người lớn tuổi, người tiểu đường, ăn kiêng,
+
+                            Sữa nhập khẩu cao cấp.
+
+                            Việc phân khu khoa học giúp khách hàng dễ dàng tìm đúng sản phẩm mình cần, tiết kiệm thời gian mua sắm.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-start">
+                    <i class="bi bi-check-circle-fill text-primary fs-4 me-3 mt-1"></i>
+                    <div>
+                        <h5 class="fw-bold">Kho bảo quản tiêu chuẩn cao</h5>
+                        <p>Chúng tôi có hệ thống kho lạnh và bảo quản đạt tiêu chuẩn, đảm bảo sữa luôn được giữ trong điều kiện lý tưởng, giữ nguyên dưỡng chất và hạn sử dụng.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <img src="/assets/img/About/anh1.jpg" alt="Phòng khám hiện đại" class="img-fluid rounded shadow">
+                    </div>
+                    <div class="col-6">
+                        <img src="/assets/img/About/anh2.jpg" alt="Phòng điều trị" class="img-fluid rounded shadow">
+                    </div>
+                    <div class="col-6">
+                        <img src="/assets/img/About/anh3.jpg" alt="Khu vực chờ" class="img-fluid rounded shadow">
+                    </div>
+                    <div class="col-6">
+                        <img src="/assets/img/About/anh4.jpg" alt="Thiết bị hiện đại" class="img-fluid rounded shadow">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Overview -->
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12">
+                <h2 class="fw-bold text-primary mb-2">An toàn – Vệ sinh – Thân thiện với trẻ em</h2>
+                <p class="lead mb-5">Chúng tôi luôn giữ gìn cửa hàng sạch sẽ, khử khuẩn định kỳ và trang bị đầy đủ nước rửa tay, khẩu trang dự phòng. Ngoài ra, cửa hàng còn có ghế ngồi cho bé, bàn thay tã, giúp các mẹ yên tâm khi đưa trẻ theo cùng.</p>
+            </div>
+        </div>
+      @*   <div class="text-center mt-4">
+            <a href="#" class="btn btn-primary rounded-pill px-4 py-2">Xem sản phẩm</a>
+        </div> *@
+    </div>
+</section>
+
+<!-- Testimonial Start -->
+@await Component.InvokeAsync("CustomerReviews")
+<!-- Testimonial End -->

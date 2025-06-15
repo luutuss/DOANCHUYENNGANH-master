@@ -1,0 +1,370 @@
+﻿@model WebsiteDental.Models.CustomerReview
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-color: white;
+    }
+
+    .content-wrapper {
+        margin-left: 230px; /* Đẩy nội dung sang phải để tránh thanh sidebar */
+        padding: 15px 20px 0 20px; /* Giảm padding phía trên */
+    }
+
+    .page-intro {
+        margin-bottom: 15px; /* Khoảng cách với form */
+    }
+
+        .page-intro h4 {
+            margin-top: 0; /* Loại bỏ margin top */
+            margin-bottom: 5px; /* Giảm margin bottom */
+        }
+
+        .page-intro p {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #dc3545;
+            font-weight: 500;
+        }
+
+    .delete-container {
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        padding: 20px;
+        margin-bottom: 20px;
+        border-left: 4px solid #dc3545;
+    }
+
+    .alert-box {
+        background-color: #fff4f5;
+        border-left: 4px solid #dc3545;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 3px;
+    }
+
+    .alert-title {
+        color: #dc3545;
+        font-weight: 600;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+        .alert-title i {
+            margin-right: 8px;
+        }
+
+    .alert-message {
+        margin-bottom: 0;
+        color: #555;
+    }
+
+    /* Customer review card styles */
+    .review-info {
+        display: flex;
+        margin-bottom: 25px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #f0f0f0;
+        align-items: flex-start; /* Align items to the top */
+    }
+
+    .review-image {
+        width: 120px;
+        height: 120px;
+        border-radius: 5px;
+        object-fit: cover;
+        margin-right: 25px; /* Increased margin */
+        border: 1px solid #e0e0e0;
+    }
+
+    .review-header {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 8px; /* Add consistent spacing between elements */
+    }
+
+    .customer-name {
+        font-size: 22px;
+        font-weight: 600;
+        color: #1a3b5d;
+        margin: 0 0 4px 0; /* Adjusted margins */
+    }
+
+    .customer-email {
+        font-size: 16px;
+        color: #666;
+        margin: 0 0 8px 0; /* Adjusted margins */
+    }
+
+    .review-status {
+        display: inline-block;
+        padding: 4px 10px; /* Slightly larger padding */
+        border-radius: 12px;
+        font-size: 12px;
+        margin: 0 0 8px 0; /* Adjusted margins */
+        font-weight: 500; /* Make it slightly bolder */
+    }
+
+    .status-active {
+        background-color: #e8f5e9;
+        color: #2e7d32;
+    }
+
+    .status-inactive {
+        background-color: #ffebee;
+        color: #c62828;
+    }
+
+    .review-rating {
+        margin-top: 5px;
+    }
+
+    /* Make the info summary more spaced out */
+    .info-summary {
+        background-color: #f9f9f9;
+        padding: 20px; /* Increased padding */
+        border-radius: 5px;
+        margin-bottom: 25px; /* Increased margin */
+    }
+
+    .info-item {
+        display: flex;
+        margin-bottom: 12px; /* Increased spacing between items */
+        font-size: 14px;
+        align-items: baseline;
+    }
+
+    .info-label {
+        font-weight: 500;
+        color: #555; /* Slightly darker */
+        width: 150px;
+        flex-shrink: 0;
+    }
+
+    .info-value {
+        color: #333;
+        flex: 1;
+        padding-left: 15px; /* Add left padding for better separation */
+    }
+
+    .text-block {
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        max-height: 100px;
+        overflow-y: auto;
+    }
+
+    .warning-box {
+        background-color: #fff8e1;
+        border-left: 4px solid #ffc107;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+
+    .warning-title {
+        color: #d97706;
+        font-weight: 600;
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+    }
+
+        .warning-title i {
+            margin-right: 8px;
+        }
+
+    .action-buttons {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        border-radius: 4px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+        .btn i {
+            margin-right: 5px;
+        }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: white;
+    }
+
+        .btn-danger:hover {
+            background-color: #bb2d3b;
+            color: white;
+        }
+
+    .btn-secondary {
+        background-color: #e9ecef;
+        color: #495057;
+    }
+
+        .btn-secondary:hover {
+            background-color: #dee2e6;
+            color: #212529;
+        }
+
+    /* Đáp ứng thiết bị di động */
+    @@media (max-width: 992px) {
+        .content-wrapper
+
+    {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .review-info {
+        flex-direction: column;
+    }
+
+    .review-image {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 100px;
+        height: 100px;
+    }
+
+    .info-item {
+        flex-direction: column;
+    }
+
+    .info-label {
+        width: 100%;
+        margin-bottom: 3px;
+    }
+
+    }
+
+    .product-image {
+        width: 120px;
+        height: 120px;
+        border-radius: 5px;
+        object-fit: cover;
+    }
+</style>
+
+<div class="content-wrapper">
+    <div class="page-intro">
+        <h4>Delete</h4>
+        <p><i class="fa fa-exclamation-triangle"></i> Are you sure you want to delete this?</p>
+    </div>
+
+    <div class="delete-container">
+        <div class="alert-box">
+            <div class="alert-title">
+                <i class="fa fa-exclamation-triangle"></i>
+                Warning
+            </div>
+            <p class="alert-message">You are about to delete this review from the system. This action cannot be undone.</p>
+        </div>
+
+        <!-- Thông tin tổng quan của review -->
+        <div class="review-info">
+            <div class="review-image-container">
+                @if (Model.ImageData != null && Model.ImageData.Length > 0)
+                {
+                    <img src="@Model.ImageData" alt="Product Image" class="product-image" />
+                }
+                else
+                {
+                    <div class="review-image" style="display: flex; align-items: center; justify-content: center; background-color: #f0f0f0;">
+                        <i class="fa fa-comment" style="font-size: 40px; color: #aaa;"></i>
+                    </div>
+                }
+            </div>
+
+            <div class="review-header">
+                <h2 class="customer-name">@Model.Customer</h2>
+                <div class="customer-email">@Model.Email</div>
+                @if (Model.IsActive == true)
+                {
+                    <div class="review-status status-active">Active</div>
+                }
+                else
+                {
+                    <div class="review-status status-inactive">Inactive</div>
+                }
+                <div class="review-rating">
+                    <span>Rating: <strong>@Model.Rating <i class="fa fa-star text-warning"></i></strong></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thông tin tóm tắt -->
+        <div class="info-summary">
+            <div class="info-item">
+                <div class="info-label">@Html.DisplayNameFor(model => model.Customer)</div>
+                <div class="info-value">@Html.DisplayFor(model => model.Customer)</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">@Html.DisplayNameFor(model => model.Email)</div>
+                <div class="info-value">@Html.DisplayFor(model => model.Email)</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">@Html.DisplayNameFor(model => model.Rating)</div>
+                <div class="info-value">@Html.DisplayFor(model => model.Rating) <i class="fa fa-star text-warning"></i></div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">@Html.DisplayNameFor(model => model.CreatedAt)</div>
+                <div class="info-value">@Html.DisplayFor(model => model.CreatedAt)</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">@Html.DisplayNameFor(model => model.IsActive)</div>
+                <div class="info-value">@Html.DisplayFor(model => model.IsActive)</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">@Html.DisplayNameFor(model => model.User)</div>
+                <div class="info-value">@Html.DisplayFor(model => model.User.Id)</div>
+            </div>
+        </div>
+
+        <!-- Nội dung review -->
+        <div class="details-section">
+            <h3 class="section-title">Review Content</h3>
+            <div class="text-block">
+                @if (!string.IsNullOrEmpty(Model.Review))
+                {
+                    @Model.Review
+                }
+                else
+                {
+                    <span class="text-muted">No review content</span>
+                }
+            </div>
+        </div>
+
+        <!-- Form xác nhận xóa -->
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <div class="action-buttons">
+                <button type="submit" class="btn btn-danger">
+                    <i class="fa fa-trash"></i> Delete
+                </button>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="fa fa-arrow-left"></i> Back to List
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
